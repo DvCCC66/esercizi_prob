@@ -24,6 +24,7 @@
 \pgfplotsset{compat=1.16}
 \usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
 \usepackage{phoenician}
+\usepackage{dsfont}
 
 \usepackage{subfigure}
 \usepackage[export]{adjustbox} % per l'allineamento delle immagini
@@ -92,7 +93,7 @@ Analogo a precedente.
 
 \subsection{(2)}
 \[
-	X^-(\omega) \leq y \Leftrightarrow \inf \left\{z| F(z) \geq \omega\right\} \leq y \Leftrightarrow F(y) \geq \omega
+	X^-(\omega) \leq y \  \Longleftrightarrow  \  \inf \left\{z| F(z) \geq \omega\right\} \leq y \  \Longleftrightarrow  \  F(y) \geq \omega
 \]
 Ultimo passaggio vale perché $F(\cdot)$ è debolmente crescente.
 
@@ -107,6 +108,22 @@ Abbiamo che, $\forall \varepsilon > 0$:
 \]
 Quindi, dato un $\omega$ che soddisfa la tesi, nessun $\omega$ strettamente maggiore di esso la soddisfa. Analogamente, nessun $\omega$ inferiore di esso la soddisfa.
 
+\section{Esercizio 1.3}
+\subsection{(1): $\mathrm{Exp}(\lambda)$}
+\[
+	F_X(x)= \int_{-\infty }^{x}f_X(x)\,dx = \int_{-\infty }^{x} \lambda e^{-\lambda x} \mathds{1}_{(0,\infty )}(x) \,dx = 1-e^{-\lambda x}
+\]
+\[
+	X^+(\omega) = \inf\left\{x| F_X(x)>\omega\right\} = \inf\left\{x| 1-e^{-\lambda x} > \omega\right\} = 
+\]
+\[	= \inf\left\{x>0| x>- \frac{\ln\left(1 - \omega\right)}{\lambda} \right\} = - \frac{\ln\left(1 - \omega\right)}{\lambda}\]
 
+\subsection{(2): $\mathrm{Cauchy}(\gamma)$}
+\[
+	F_X(x) = \frac{\arctan \frac{x}{\gamma}}{\pi} + \frac{1}{2}
+\]
+\[
+	X^\pm(x) = \gamma \tan \left[\pi\left(\omega - \frac{1}{2}\right)\right]
+\]
 
 \end{document}
