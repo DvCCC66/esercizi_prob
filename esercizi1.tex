@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage{epsfig}
+\usepackage{pstricks}
+\usepackage{subfigure}
+\usepackage[labelfont=bf, font=scriptsize]{caption}
+\usepackage[italian]{varioref}
+\usepackage[suftesi]{frontespizio}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{comment}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{phoenician}
+
+\usepackage{subfigure}
+\usepackage[export]{adjustbox} % per l'allineamento delle immagini
+\usepackage{float}
+\usepackage{amssymb} % for the \lesssim symbol
+\usepackage{makecell}
+\usepackage{changepage}
+\usepackage{amssymb}
+
+\title{Esercizi prob 1}
+\begin{document}
+\maketitle
+\section{Esercizio 1.1}
+\subsection{(1)}
+$F: \mathbb{R}\rightarrow \left[0,1\right]$ Ovvio
+
+Non decrescenza: assumendo $x\leq y$:
+\[
+	F(y)= \mathbb{P}\left(X\leq y\right) = \mathbb{P}\left(X\leq x\right)
+	+ \mathbb{P}
+	\left(x < X \leq y \right)
+	\geq
+	\mathbb{P}\left(X\leq x\right) = F(x)
+\]
+
+\subsection{(2)}
+Per convergenza monotona di Beppo Levi:
+\[
+	0 = \mathbb{P}\left(\bigcap_x \left\{X\leq x\right\}\right) = \lim_{y\rightarrow -\infty} F(x)
+\]
+Analogamente anche con $F(+\infty)$.
+
+\subsection{(3)}
+Sempre per convergenza monotona:
+\[
+	\lim_{y\rightarrow x^+} F(y) = \lim_{y\rightarrow x^+}\mathbb{P}\left(X\leq y\right) = \mathbb{P} \left(\bigcap_{y>x}\left\{X\leq y\right\}\right)
+\]
+\[
+	F(x) = \mathbb{P}\left(X\leq x\right)	
+\]
+\subsection{Bonus}
+\[
+	\mathbb{P}\left(X=x\right) = \mathbb{P}\left(X\leq x\right) - \mathbb{P}\left(X<x\right) = F(x) - \mathbb{P}\left(\bigcup_{y<x} \left\{X\leq y\right\}\right) = F(x) - \lim_{y \nearrow x} F(y)
+\]
+
+
+\section{Esercizio 1.2}
+\subsection{(1)}
+\subsubsection{$X^+ \geq X^-$}
+\[
+	\left\{z| F(z)>\omega \right\} \subset \left\{z| F(z) \geq \omega\right\} \longrightarrow \inf \left\{z| F(z)>\omega \right\} \geq \inf \left\{z| F(z) \geq \omega\right\} 
+\]
+
+\subsubsection{$X^+(\omega) \in \mathbb{R} \ \forall \omega\in \left(0,1\right)$}
+Supponiamo per assurdo che $X^+ (\omega) = +\infty$:
+\[
+	\forall z_0, \ \exists z>z_0, \ F(z) \leq \omega < 1
+\]
+\[
+	\lim_{z\rightarrow +\infty} F(z) \leq \omega < 1	
+\]
+Che è in contraddizione con ipotesi (2).
+\subsubsection{$X^-(\omega) \in \mathbb{R} \ \forall \omega\in \left(0,1\right)$}
+Analogo a precedente.
+
+
+\subsection{(2)}
+\[
+	X^-(\omega) \leq y \Leftrightarrow \inf \left\{z| F(z) \geq \omega\right\} \leq y \Leftrightarrow F(y) \geq \omega
+\]
+Ultimo passaggio vale perché $F(\cdot)$ è debolmente crescente.
+
+\subsection{(3)}
+Diamo per buoni tutti i suggerimenti.
+
+Tesi: $\exists! \omega \ t.c. \ X^-(\omega) < q < X^+(\omega)$
+
+Abbiamo che, $\forall \varepsilon > 0$:
+\[
+	X^-(\omega+\varepsilon) = \inf \left\{z| F(z) \geq \omega+\varepsilon\right\} \geq \inf \left\{z| F(z) > \omega\right\} > q
+\]
+Quindi, dato un $\omega$ che soddisfa la tesi, nessun $\omega$ strettamente maggiore di esso la soddisfa. Analogamente, nessun $\omega$ inferiore di esso la soddisfa.
+
+
+
+\end{document}
