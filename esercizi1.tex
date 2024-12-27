@@ -123,7 +123,41 @@ Quindi, dato un $\omega$ che soddisfa la tesi, nessun $\omega$ strettamente magg
 	F_X(x) = \frac{\arctan \frac{x}{\gamma}}{\pi} + \frac{1}{2}
 \]
 \[
-	X^\pm(x) = \gamma \tan \left[\pi\left(\omega - \frac{1}{2}\right)\right]
+	X^\pm(\omega) = \gamma \tan \left[\pi\left(\omega - \frac{1}{2}\right)\right]
 \]
+
+
+\subsection{(3): $P_X = pP_Y + (1-p)P_0$}
+\[
+	P_X(x) = p\left(e^{-x} \mathds{1}_{(0,\infty )}(x)\right) + (1-p) \delta(x)
+\]
+\[
+	F_X(x) = \int_{-\infty }^{x} P_X \left(\xi\right) \, d\xi = \left[p\left(1-e^{-x}\right) + \left(1-p\right)\right] \mathds{1}_{[0,\infty )} (x)
+\]
+\[
+	X^\pm(\omega) = -\ln \left(1- \frac{\omega-(1-p)}{p}\right) \mathds{1}_{[1-p,p]}(\omega)
+\]
+
+\subsection{(4): Valori $a_1, \dotsc, a_m$ con probabilità $p_1, \dotsc, p_m$}
+\[
+	f_X(x) = p_1 \delta(a_1) + \dotsb + p_m \delta(a_n)
+\]
+\[
+	F_X(x) = \int_{-\infty }^{x} f_X \left(\xi\right) \, d\xi = s_{j(x)}
+\]
+Con $j(x) := \max\left\{j | a_j\leq x\right\}$
+
+\[
+	X^\pm (\omega) = \inf\left\{\omega | s_{j(x)} > \omega\right\}
+\]
+(Non sono riuscito a trovare una espressione migliore)
+
+\subsection{(5): $F(x) = \left(1- pe^{-x}\right) \mathds{1}_{[0, \infty )}(x)$}
+\[
+	X^\pm\left(\omega\right) = - \ln\left(\frac{1-\omega}{p}\right) \mathds{1}_{[1-p,\infty )}(\omega)
+\]
+
+\subsection{(6): $f(x) = \frac{1}{2x^2} \mathds{1}_{(-1,1)}(x)$}
+Non ne ho idea, visto che diverge con $x=0$
 
 \end{document}
