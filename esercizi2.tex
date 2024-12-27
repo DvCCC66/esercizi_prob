@@ -34,8 +34,115 @@
 \usepackage{changepage}
 \usepackage{amssymb}
 
+\newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
 \title{Esercizi prob 2}
 \begin{document}
 \maketitle
 \section{Esercizio 2.1}
 
+
+\section{Esercizio 2.2}
+\subsection{$\Rightarrow $}
+Sia $A_j := \left\{\omega | X_j(\omega) \leq  x_j \right\}$
+
+Abbiamo che $A_j \in \sigma(X_j)$ (infatti: $X_j(A_j) = (-\infty , x_j] \in \mathcal{B}(\mathbb{R})$)
+
+Quindi $\mathbb{P}\left(\bigcap_{j=1}^{n} A_j\right) = \prod_{j=1}^{n} \mathbb{P}(A_j)$
+
+\subsection{$\Leftarrow $}
+Osserviamo che, fissato $j$, si ha che $\Pi_j := \left\{\left\{X_j \leq  x_j\right\}, x_j \in \mathbb{R}\right\}$ è un $\pi$-sistema (infatti $\left\{X_j \leq  x_j\right\} \cap \left\{X_j \leq  y_j\right\} = \left\{X_j \leq  \min\left\{x_j, y_j\right\}\right\}$).
+
+Per l'esercizio 2.1 si ha la tesi.
+
+\section{Esercizio 2.3}
+
+\section{Esercizio 2.4}
+\subsection{(1)}
+Definiamo $I_j^n := \left[\frac{j-1}{2^n}, \frac{j}{2^n}\right)$
+\[\mathbb{P}\left(I_j^n\right) = \frac{1}{2^n}\]
+
+Riscriviamo $A_{n+1}$ e $B$ in funzione degli $I_j^n$:
+\[
+	B = \bigcap_{k\in K} I_k^n
+\]
+(per qualche insieme $K$)
+
+\[
+	A_{n+1} = \bigcap_{j=1}^{2^{n-1}} I_{2j}^{n+1}
+\]
+
+Quindi:
+\[
+	\mathbb{P}(A_{n+1}) = \frac{1}{2}
+\]
+\[
+	\mathbb{P}(B) = \frac{|K|}{2^n}
+\]
+\[
+	\mathbb{P}\left(B \cap  A_{n+1}\right) = \frac{|K|}{2^{n+1}}
+\]
+
+\subsection{(2)}
+Premessa: Non so cosa significhi "sequenza B(1/2)". Io lo interpreterei come "Variabile di Bernoulli con $p=\frac{1}{2}$"
+
+Che $\left(\mathds{1}_{A_n}\right)_n$ siano identicamente distribuite lo abbiamo già visto (hanno tutte $\mathbb{P}(X=1)= \mathbb{P}(X=0) = \frac{1}{2}$).
+
+Inoltre $\mathbb{P}\left(I_j^n \cap A_m\right) = \frac{1}{2}$ con $n<m$.
+
+Quindi dimostrato.
+
+\section{Esercizio 2.5}
+\subsection{(1)}
+$X$ è variabile aleatoria perché è misurabile (è limite di funzioni semplici misurabili) ed è sempre finita ($\left| \frac{X_n(\omega )}{2^n} \right| \leq  \frac{1}{2^n}$, che converge in somma).
+
+\[
+	\mathbb{P}\left(X\in \left\{0,1\right\}\right) \leq  \mathbb{P}\left(X=0\right) + \mathbb{P}\left(X=1\right) = \mathbb{P}\left(X_n = 0, \forall  n\right) + \mathbb{P}\left(X_n = 1, \forall  n\right)  \leq  \frac{1}{2^n} + \frac{1}{2^n} \ \ \ \ \  \forall  n
+\]
+
+Siccome $0 \leq  X \leq  1$:
+\[
+	\mathbb{P}\left(X \in (0,1)\right) = 1-\mathbb{P}\left(X \in \left\{0,1\right\}\right) = 1
+\]
+
+\subsection{(2)}
+\[
+	2F_X(x) = 2\mathbb{P}\left(\sum_{n} \frac{X_n}{2^n} \in  [0,X]\right) = 2 \mathbb{P}\left\{\omega  | 2\sum_{x}\frac{X_n (\omega )}{2^n} \in  [0,2x]\right\} = 2\mathbb{P}\left\{\omega  | X_0' + \sum_{n}\frac{X'_n(\omega )}{2^n} \in  [0,2x]\right\} = 
+\]
+Con $X'_j := X_{j+1}$
+
+\[
+	2\left[\mathbb{P}\left(X'_0=0\right) \mathbb{P}\left(X\in [0,2x]\right)  +  \mathbb{P}\left(X'_0=1\right)\mathbb{P}\left(X\in [0,2x-1]\right)\right]
+\]
+
+Se $x \leq  \frac{1}{2}$:
+\[
+	2F_X(x) = 2\left[\frac{1}{2} \cdot  F_X(2x) + \frac{1}{2} \cdot  0\right] = F_X(2x)
+\]
+
+Se $x \geq  \frac{1}{2}$:
+\[
+	2F_X(x) = 2\left[\frac{1}{2} \cdot  1 + \frac{1}{2} \cdot  F_X(2x-1)\right] = 1+F_X(2x-1)
+\]
+
+
+\subsection{(3)}
+Sappiamo dalla formula che $F_X\left(0\right)=0$ e che $F_X(1)=1$.
+
+Quindi, imponendo $x=\frac{m}{2^n}$, si ha che con la formula si può ricavare il valore di $F_X(x)$ in funzione dei valori $\left\{F_X(\frac{m}{2^{n-1}})\right\}_{m\in \mathbb{N}}$, quindi tutti i valori diadici sono fissati.
+
+In particolare, si può dimostrare per induzione che $F_X(x) = x$.
+
+\subsection{(4)}
+\[
+	X_1 := \sum_{n\in \mathbb{N}} \frac{X_{2n}}{2^n}
+\]
+\[
+	X_2 := \sum_{n\in \mathbb{N}}\frac{X_{2n+1}}{2^n}
+\]
+Con i termini nella sommatoria IID B(1/2).
+
+\subsection{(5)}
+Analogamente a prima ma spartisci i vari $X_j$ in infinite classi.
+
+
+\end{document}
