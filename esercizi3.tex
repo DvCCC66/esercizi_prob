@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage{epsfig}
+\usepackage{pstricks}
+\usepackage{subfigure}
+\usepackage[labelfont=bf, font=scriptsize]{caption}
+\usepackage[italian]{varioref}
+\usepackage[suftesi]{frontespizio}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{comment}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{phoenician}
+\usepackage{dsfont}
+
+\usepackage{subfigure}
+\usepackage[export]{adjustbox} % per l'allineamento delle immagini
+\usepackage{float}
+\usepackage{amssymb} % for the \lesssim symbol
+\usepackage{makecell}
+\usepackage{changepage}
+\usepackage{amssymb}
+
+\newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
+\title{Esercizi prob 3}
+\begin{document}
+\maketitle
+\section{Esercizio 3.1}
+Per BC1, $\forall  \varepsilon $ 
+\[
+	\mathbb{P}\left(|X_n - X| >\varepsilon , i.o.\right) = 0
+\]
+
+Ovvero: 
+\[
+	\forall \varepsilon , \ per\ q.o.\ \omega ,\  \exists N\ :\ |X_n(\omega ) - X(\omega )| \leq \varepsilon 
+\]
+Che è quasi la tesi (basta prendere solo una quantità numerabile di $\varepsilon $ che però tendano a $0$). $\Omega _0$ sarà l'intersezione (numerabile) di tutti gli insiemi per cui vale la formula scritta sopra.
+
+\section{Esercizio 3.2}
+\subsection{(1)}
+\[
+	\mathbb{P}\left(\left\{X_n \neq  0\right\}\right) = \frac{1}{k(n)} \rightarrow 0
+\]
+
+\subsection{(2)}
+Dato $\omega $, per ogni valore distinto di $k$ esiste un valore di $n$ tale che $X_n(\omega ) =1$, quindi $X_n\left(\omega \right) = 1$ infinite volte.
+
+Quindi
+\[
+	\nexists\, \omega \ : \ X_n(\omega ) \rightarrow  \omega 
+\]
+(tranne forse $\omega =0$ o $\omega =1$ ma non ho voglia di controllare).
+
+
+\section{Esercizio 3.3}
+\subsection{$Y_n \rightarrow  0$}
+
+\subsection{$\left(Y_n\right)$ non converge q.c.}
+
+
+\section{Esercizio 3.4}
+\[
+	\mathbb{P}\left(|X_1|>x\right) = \left(\mathbb{P}\left(\bigcap_{n} \left\{|X_n| > x\right\}\right)\right)^{\frac{1}{n}} = \exp \left[\frac{1}{n} \ln \mathbb{P}\left(\bigcap_n \left\{|X_n| > x\right\}\right)\right]
+\]
+
+\end{document}
