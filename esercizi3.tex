@@ -33,6 +33,8 @@
 \usepackage{makecell}
 \usepackage{changepage}
 \usepackage{amssymb}
+\newcommand{\myrightarrow}[1]{\xrightarrow{\makebox[2em][c]{$\scriptstyle#1$}}}
+\newcommand{\convlegge}{\myrightarrow{\mathcal{L}}}
 
 \newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
 \title{Esercizi prob 3}
@@ -76,5 +78,69 @@ Quindi
 \[
 	\mathbb{P}\left(|X_1|>x\right) = \left(\mathbb{P}\left(\bigcap_{n} \left\{|X_n| > x\right\}\right)\right)^{\frac{1}{n}} = \exp \left[\frac{1}{n} \ln \mathbb{P}\left(\bigcap_n \left\{|X_n| > x\right\}\right)\right]
 \]
+
+\section{Esercizio 3.5}
+\subsection{(1): $\#\left(C_F^0\right)^c \leq  \aleph_0$  ($\Rightarrow \overline{C_F^0} = \mathbb{R}$)}
+$F$ è continuo a destra: $\forall x\in (C_F^0)^c$ si possono definire $$\omega_x^- := \lim_{y \nearrow x} F(y); \ \ \ \ \ \omega _x^+ := F(x)$$.
+
+Si ha che $\exists q_x \in  (\omega _x^-, \omega _x^+) \ t.c.\ q_x\in \mathbb{Q}$. Inoltre, siccome $F$ è non descrescente, $q_x \neq  q_y\ \  \forall x\neq y$, quindi abbiamo creato una funzione iniettiva $(C_F^0)^c \longrightarrow \mathbb{Q}$
+
+\subsection{(2): Eventualmente $F_n(z)>\omega \ \land \ X_n^+(\omega )\leq z$}
+\[
+	z > \inf\left\{y | F_X(y) > \omega \right\} \ \ \ \Longrightarrow \ \ \ F_X(z) > \omega 
+\]
+
+Siccome per ipotesi $z \in  C_F^0$:
+\[
+	F_{X_n} \left(z\right) \longrightarrow  F_X(z) > \omega 
+\]
+Quindi la prima tesi eventualmente è vera.
+
+Siccome $F_{X_n}$ è debolmente crescente, questo implica anche che
+\[
+	z \geq  \inf\left\{y | F_{X_n}(y) > \omega \right\}
+\]
+
+\subsection{(3): $\limsup_n X_n^+(\omega ) \leq  X^+(\omega )$}
+\[
+	\limsup_n X_n^+(\omega ) \leq z\ \ \ \ \ \ \forall  z> X^+(\omega )
+\]
+
+\subsection{(4): $\liminf_n X_n^-(\omega ) \geq  X^-(\omega )$}
+Basta rifare tutto invertendo tutti i segni.
+
+\subsection{(5): $X_n^+ \rightarrow  X^+ \ \ q.c.$}
+Q.c., $X^- = X^+$, quindi convergenza c'è per teorema dei 2 carabinieri.
+
+
+\section{Esercizio 3.6}
+\subsection{(1): $X_n \convlegge X_1$}
+Nota: non ho capito la vera definizione formale di IID
+
+Supponiamo che $\mathbb{E}\left[h(X_n)\right] \longrightarrow \mathbb{E}\left[H(X)\right]$ con $h$ semplice. Allora sappiamo che tutte le funzioni continue bounded sono il limite di una serie crescente di funzioni semplici. Quindi tesi vera per convergenza dominata.
+
+
+\subsection{(2): $\exists  a<b \ : \ \mathbb{P}\left(X_1\leq a\right) > 0 \ \land  \ \mathbb{P}\left(X_1\geq b\right) > 0$}
+Assumendo la tesi falsa per assurdo, siccome
+\[
+	\mathbb{P}\left(X_1\leq a\right) + \mathbb{P}\left(a < X_1 < b\right) + \mathbb{P}\left(b\leq X_1\right) = 1
+\]
+
+Si ha che $\mathbb{P}\left(a < X_1 < b\right) = 1\ \ \ \forall\, a<b$.
+
+Quindi $X_1$ è costante (che va contro l'ipotesi).
+
+La seconda tesi è vera per BC2.
+
+\subsection{(3): $\left(X_n\right)_n$ non converge q.c.}
+Q.c. $\left(X_n (\omega )\right)_n$ continua a saltare da sotto $a$ a sopra $b$ infinite volte, quindi non può convergere.
+
+\subsection{(4): $\left(X_n\right)_n$ non converge in prob}
+Per qualsiasi $X(\omega )$ (ad $\omega $ fissato) si ha che 
+\[
+	\left|X_n(\omega ) - X\left(\omega \right)\right| > \left(b-a\right)
+\]
+infinite volte.
+
 
 \end{document}
