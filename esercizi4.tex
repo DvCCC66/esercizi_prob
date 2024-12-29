@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage{epsfig}
+\usepackage{pstricks}
+\usepackage{subfigure}
+\usepackage[labelfont=bf, font=scriptsize]{caption}
+\usepackage[italian]{varioref}
+\usepackage[suftesi]{frontespizio}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{pgfplots}
+\usepackage{comment}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.16}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{phoenician}
+\usepackage{dsfont}
+
+\usepackage{subfigure}
+\usepackage[export]{adjustbox} % per l'allineamento delle immagini
+\usepackage{float}
+\usepackage{amssymb} % for the \lesssim symbol
+\usepackage{makecell}
+\usepackage{changepage}
+\usepackage{amssymb}
+\newcommand{\myrightarrow}[1]{\xrightarrow{\makebox[2em][c]{$\scriptstyle#1$}}}
+\newcommand{\convlegge}{\myrightarrow{\mathcal{L}}}
+
+\newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
+\title{Esercizi prob 4}
+\author{Davide Caucchiolo}
+\begin{document}
+\maketitle
+\section{Esercizio 4.1}
+Sia $\widetilde{K}$ tale che $\mathbb{P}\left(X\in \widetilde{K}\right) \geq  1-\frac{\varepsilon }{2}$ (esiste perché... credo sia una proprietà degli integrali o roba simile...).
+
+La convergenza in legge implica che:
+\[
+	\mathbb{P}\left(X_n\in \widetilde{K}\right) \myrightarrow{n} \mathbb{P}\left(X\in \widetilde{K}\right)
+\]
+
+Quindi
+\[
+	\exists N_0,\ \ \ \forall n\geq N_0,\ \ \ \ \mathbb{P}\left(X_n\in \widetilde{K}\right)\geq 1-\varepsilon 
+\]
+
+Per $n<N_0$ definiamo $K_n$ tale che:
+\[
+	\mathbb{P}\left(X\in K_n\right) \geq  1-\varepsilon 
+\]
+
+Quindi in $K:= \bigcup_{n<N_0} K_n \cup  \widetilde{K}$ (che è compatto perché unione finita di compatti):
+\[
+	\mathbb{P}\left(X\in K\right) \geq  1-\varepsilon\ \ \ \ \ \forall n
+\]
+
+Ovvero $\left(X_n\right)_{n\in \mathbb{N}}$ è tight.
+
+
+\section{Esercizio 4.2}
+\[
+	y:= \sup_n \mathbb{E}\left[h\left(\left|X_n\right|\right)\right] < \infty 
+\]
+\[
+	\mathbb{E}\left[h\left(\left|X_n\right|\right)\right] \leq  \mathbb{E}\left[y\right] = y\ \ \ \ \forall n
+\]
+
+Applichiamo ora la disuguaglianza di Markov:
+\[
+	\mathbb{P}\left(h\left(\left|X_n\right|\right) \geq  k\right) \leq  \frac{\mathbb{E}\left[h\left(\left|X_n\right|\right)\right]}{k} \leq  \frac{y}{k}\ \ \ \ \ \forall n
+\]
+\[
+	\mathbb{P}\left(h\left(\left|X_n\right|\right) < k\right) = 1- \mathbb{P}\left(h\left(\left|X_n\right|\right) \geq  k\right) \geq  1-\frac{y}{k}\ \ \ \ \ \forall n
+\]
+
+Quindi per la tightness basta predere l'insieme compatto $\overline{\left\{h\left(\left|X_n\right|\right) < k\right\}}$ (la linea sopra indica la chiusura dell'insieme, che è già limitato siccome $h$ è crescente e tendente all'infinito).
+
+
+
+
+\end{document}
