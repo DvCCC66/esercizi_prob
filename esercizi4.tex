@@ -86,6 +86,42 @@ Applichiamo ora la disuguaglianza di Markov:
 Quindi per la tightness basta predere l'insieme compatto $\overline{\left\{h\left(\left|X_n\right|\right) < k\right\}}$ (la linea sopra indica la chiusura dell'insieme, che è già limitato siccome $h$ è crescente e tendente all'infinito).
 
 
+\section{Esercizio 4.3}
+\subsection{(1): $\int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = \int_{\mathbb{R}} \left(\int_{-T}^{T} \frac{e^{it(x-a)} - e^{it(x-b)}}{it} \, dt\right) P_X(dx)$}
 
+\[
+	\int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \left(\int_{\Omega } e^{it X(\omega )} \mathbb{P(d\omega )}\right) \,dt = \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \left(\int_{\mathbb{R}} e^{itx} P_X(dx)\right) \,dt 
+\]
+Nota: questo passaggio non so come giustificarlo bene. Per favore qualche matematico spieghi meglio cosa sta succedendo.
+
+Ora vogliamo controllare se i due integrali sono (assolutamente) integrabili:
+\[
+	\int_{\mathbb{R}} \left|e^{itx} P_X(dx)\right| = \int_{\mathbb{R}} \left|P_X\left(dx\right)\right| < +\infty
+\]
+\[
+	\int_{-T}^{T} \left|\frac{e^{-ita} - e^{-itb}}{it}\right|\,dt =\]\[
+	\int_{-T}^{T} \left|\frac{1-ita-1+itb+O(t^2)}{t}\right|\,dt = \]\[
+	\int_{-T}^{T} \left|\frac{it\left(b-a\right) + O(t^2)}{t}\right|\,dt =\]\[
+	\int_{-T}^{T} \left|i(b-a) + O(t)\right|\,dt < +\infty 
+\]
+
+Quindi applicando Fubini+Tonelli e distribuendo si ottiene la tesi.
+
+\subsection{(2): $\frac{1}{2\pi } \int_{-T}^{T}\frac{e^{it(x-a)} - e^{it(x-b)}}{it} \,dt = \frac{1}{\pi }\left[sgn(x-a) S\left(\left|x-a\right|T\right) - sgn(x-b)S\left(\left|x-b\right|T\right)\right]$}
+
+\[
+	\frac{1}{2\pi } \int_{-T}^{T}\frac{e^it(x-a)}{it} \,dt = \]\[
+	\frac{1}{\pi } sgn(x-a) \int_{0}^{T} \left[\frac{e^{it\left|x-a\right|} - e^{-it\left|x-a\right|}}{2it}\right] \,dt =\]\[
+	\frac{1}{\pi } sgn(x-a) \int_{0}^{T} \frac{\sin\left(\left|x-a\right|t\right)}{t} \,dt
+\]
+
+\subsection{(3): $\lim_{T\nearrow \infty }  \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = P_X((a,b)) + \frac{1}{2}P_X\left(\left\{a\right\}\right) + \frac{1}{2}P_X(\left\{b\right\})$}
+\[
+	\lim_{T\nearrow \infty }  \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = \]\[
+	\lim_{T\nearrow \infty }  \frac{1}{\pi }\left[sgn(x-a) S\left(\left|x-a\right|T\right) - sgn(x-b)S\left(\left|x-b\right|T\right)\right] P_X(dx)=
+\]
+\[
+	\frac{1}{\pi } \left[ \int_{x<a} \left(-\frac{\pi }{2} + \frac{\pi }{2} \right)P_X(dx) + \frac{\pi }{2}P_X\left(\left\{a\right\}\right) + \int_{a<x<b} \left(\frac{\pi }{2} + \frac{\pi }{2} \right)P_X(dx) + \frac{\pi }{2}P_X\left(\left\{b\right\}\right) + \int_{x>b} \left(\frac{\pi }{2} - \frac{\pi }{2} \right)P_X(dx)\right]
+\]
 
 \end{document}
