@@ -33,8 +33,17 @@
 \usepackage{makecell}
 \usepackage{changepage}
 \usepackage{amssymb}
+\usepackage{geometry}
 \newcommand{\myrightarrow}[1]{\xrightarrow{\makebox[2em][c]{$\scriptstyle#1$}}}
 \newcommand{\convlegge}{\myrightarrow{\mathcal{L}}}
+\newcommand{\re}{\mathfrak{Re}}
+\newcommand{\im}{\mathfrak{Im}}
+\geometry{margin=15mm}
+\setlength{\columnseprule}{.5pt}
+\setlength{\oddsidemargin}{30pt}
+\setlength{\hoffset}{-1in}
+%\setlength{\parindent}{-10pt}
+
 
 \newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
 \title{Esercizi prob 4}
@@ -115,7 +124,7 @@ Quindi applicando Fubini+Tonelli e distribuendo si ottiene la tesi.
 	\frac{1}{\pi } sgn(x-a) \int_{0}^{T} \frac{\sin\left(\left|x-a\right|t\right)}{t} \,dt
 \]
 
-\subsection{(3): $\lim_{T\nearrow \infty }  \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = P_X((a,b)) + \frac{1}{2}P_X\left(\left\{a\right\}\right) + \frac{1}{2}P_X(\left\{b\right\})$}
+\subsection{(3): $\lim_{T\nearrow \infty } \frac{1}{2\pi } \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = P_X((a,b)) + \frac{1}{2}P_X\left(\left\{a\right\}\right) + \frac{1}{2}P_X(\left\{b\right\})$}
 \[
 	\lim_{T\nearrow \infty }  \int_{-T}^{T} \frac{e^{-ita}-e^{-itb}}{it} \phi (t)\,dt = \]\[
 	\lim_{T\nearrow \infty }  \frac{1}{\pi }\left[sgn(x-a) S\left(\left|x-a\right|T\right) - sgn(x-b)S\left(\left|x-b\right|T\right)\right] P_X(dx)=
@@ -123,5 +132,52 @@ Quindi applicando Fubini+Tonelli e distribuendo si ottiene la tesi.
 \[
 	\frac{1}{\pi } \left[ \int_{x<a} \left(-\frac{\pi }{2} + \frac{\pi }{2} \right)P_X(dx) + \frac{\pi }{2}P_X\left(\left\{a\right\}\right) + \int_{a<x<b} \left(\frac{\pi }{2} + \frac{\pi }{2} \right)P_X(dx) + \frac{\pi }{2}P_X\left(\left\{b\right\}\right) + \int_{x>b} \left(\frac{\pi }{2} - \frac{\pi }{2} \right)P_X(dx)\right]
 \]
+
+\subsection{(4): Come ricavare $F_X$}
+Sappiamo che $P_X((a,b)) + P_X(\left\{b\right\}) = F_X(b) - F_X(a)$. Quindi, usando la formula di prima, possiamo ricavarci tutte le differenze fra valori di $F_X$. Imponendo alla fine che $F_X(-\infty ) = 0$ (da cui dovrebbe seguire che $F_X(+\infty ) = 1$), si può ricavare $F_X\left(x\right) \ \ \ \forall \,x$
+
+\subsection{(5): $F_X(b) - F_X(a) = \frac{1}{2\pi }\int_{\mathbb{R}} \frac{e^{-ita} - e^{-itb}}{it} \varphi (t) \,dt$}
+Come dice l'hint, dobbiamo solamente dimostrare che $F_X$ è continua:
+
+Facciamo convergenza dominata dell'integrale:
+\[
+	\int_{\mathbb{R}} \left|\frac{e^{-ita} - e^{-itb}}{it} \varphi (t) \,dt\right| \leq  \int_{\mathbb{R}} \frac{\left|e^{-ita} - e^{-itb}\right|}{|t|} \left|\phi (t)\right|\,dt
+\]
+
+Sappiamo già che $\int| \phi (t) | \,dt$ è finito, quindi basta controllare con $t \rightarrow 0$:
+\[
+	\frac{e^{-ita}-e^{-itb}}{t} = \frac{-it(a-b) + o(t)}{t} = -i(a-b) + o(1)
+\]
+che è integrabile attorno a 0.
+
+Quindi possiamo portare il limite dentro l'integrale, ed è quindi ovvio dimostrare che $F_X$ è continua.
+
+\subsection{(6): $F'_X(x) = \frac{1}{2\pi }\int_{\mathbb{R}} e^{-itx}\varphi (t)\,dt$}
+\[
+	\frac{F_X(x+h) - F_X(x)}{h} = \frac{1}{2\pi }\int_\mathbb{R} e^{-itx} \frac{ith + o(h)}{ith}\phi (t)\,dt \ \myrightarrow{h\rightarrow 0}\  \frac{1}{2\pi }\int_{\mathbb{R}} e^{-itx}\varphi (t)\,dt
+\]
+(Non sono un matematico quindi non so se prima bisogna fare altri argomenti strani per giustificare questo)
+
+\section{Esercizio 4.4}
+\subsection{(1): $\sin(t)$}
+No: $\sin(0)=0 \neq 1$
+
+\subsection{(2): $\cos(t)$}
+Sì: con tentativi ed errori si scopre che funziona:
+\[X(\omega ) = \left\{\begin{aligned}
+&-1\ \ \ se\ \omega <\frac{1}{2}\\
+& 1\ \ \ se\ \omega \geq \frac{1}{2}\\
+\end{aligned}\right.\]
+Quindi:
+\[F_X(x) = \left\{\begin{aligned}
+&0 && se\ x<-1\\
+& \frac{1}{2} && se\ -1\leq x<1\\
+& 1 & & se\ x\geq 1\\
+\end{aligned}\right.\]
+
+\subsection{(3): $\cos(t^2)$}
+
+
+
 
 \end{document}
