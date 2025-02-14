@@ -68,5 +68,64 @@ Per la seconda tesi, sia $G = G_L \cup G_b$, con $G_L:= G\cap \left\{|X|>L\right
 	\frac{\varepsilon }{2} + \frac{\varepsilon }{2} = \varepsilon 
 \]
 
+\subsection{$\Leftarrow $}
+\[c:= \sup_{X\in \mathcal{C}} \|X\|_1\]
+
+Dobbiamo dimostrare che $\forall \delta >0,\ \exists L,\ \forall X,\ \mathbb{P}\left(|X|>L\right)<\delta $:
+
+\[\|X\|_1 \geq  L\mathbb{P}\left(|X|>L\right)\]
+\[\mathbb{P}\left(|X|>L\right) \leq  \frac{\|X\|_1}{L} \leq  \frac{c}{L} < \delta \]
+(con $L$ sufficientemente grande).
+
+
+\section{Esercizio 5.3}
+$X_n\in \mathbb{L}^1$: già dimostrato nell'esercizio precedente (prima tesi di parte "$\Rightarrow $").
+
+Tesi $\lim_n\mathbb{E}\left[X_n\right] = \mathbb{E}\left[X\right]$:
+Sappiamo già che, data la convergenza in legge, $\lim_n\mathbb{E}\left[h(X_n)\right] = \mathbb{E}\left[h\left(X\right)\right]\ \ \ \forall h\in \mathcal{C}^0_b$.
+
+Questo vale anche per $h = \mathds{1}_{\{|X|>L\}}$ (ovviamente questo $h$ non è continuo, ma può essere approssimato da funzioni continue): $X$ è UI (quindi è anche $\mathbb{L}^1$).
+
+Inoltre questo vale anche con $h\left(x\right) =x$ (anche questo non bounded ma approssimabile da bounded).
+
+
+(Sinceramente a me questo esercizio sussa perché sembra già tutto fatto)
+
+
+\section{Esercizio 5.4}
+Usiamo l'esercizio precedente:
+
+\[Y_n := f\left(\frac{S_n}{\sqrt{n}}\right)\]
+\[Y:=f(Z)\]
+
+\subsection{Tesi 1: $Y_n \convlegge Y$}
+Tesi: $\mathbb{E}\left[h\left(Y_n\right)\right] \rightarrow  \mathbb{E}\left[h\left(Y\right)\right]\ \ \ \forall h\in \mathcal{C}^0_b$:
+
+Osserviamo che $h\circ f\in \mathcal{C}^0_b$:
+
+siccome per TLC: $\frac{S_n}{\sqrt{n}} \convlegge Z$, si ha la Tesi 1.
+
+\subsection{Tesi 2: $\left(Y_n\right)_{n\in \mathbb{N}}$ UI}
+\[sup_n \|Y_n\| < \infty \]
+In quanto sono tutte funzioni $\mathbb{L}^1$ (infatti asintoticamente $f$ cresce al massimo come $x^4$, e $X_n\in \mathbb{L}^4$) e tendono in legge ad una funzione $\mathbb{L}^1$ (sempre per lo stesso motivo).
+
+Inoltre $\mathbb{E}\left[|Y_n|; |Y_n|>L\right] \rightarrow  \mathbb{E}\left[|Y|;|Y|>L\right] < \varepsilon $ (sempre per convergenza in legge). 
+
+
+\section{Esercizio 5.5}
+Sappiamo che $\frac{S_n}{n} \longrightarrow \mu $ q.c. (per LGN; $\mu := \mathbb{E}[X_n]$).
+
+
+
+
+
+
+
+
+
+% Per il teorema di Ergorov (è quasi vero che una funzione convergente puntualmente converge anche uniformemente) si ha che 
+% \[\mathbb{P}\left(\left|\frac{S_n}{n}\right| > \mu +42\right) < \varepsilon  \]
+
+
 
 \end{document}
