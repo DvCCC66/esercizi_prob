@@ -106,7 +106,7 @@ Osserviamo che $h\circ f\in \mathcal{C}^0_b$:
 siccome per TLC: $\frac{S_n}{\sqrt{n}} \convlegge Z$, si ha la Tesi 1.
 
 \subsection{Tesi 2: $\left(Y_n\right)_{n\in \mathbb{N}}$ UI}
-\[sup_n \|Y_n\| < \infty \]
+\[\sup_n \|Y_n\| < \infty \]
 In quanto sono tutte funzioni $\mathbb{L}^1$ (infatti asintoticamente $f$ cresce al massimo come $x^4$, e $X_n\in \mathbb{L}^4$) e tendono in legge ad una funzione $\mathbb{L}^1$ (sempre per lo stesso motivo).
 
 Inoltre $\mathbb{E}\left[|Y_n|; |Y_n|>L\right] \rightarrow  \mathbb{E}\left[|Y|;|Y|>L\right] < \varepsilon $ (sempre per convergenza in legge). 
@@ -115,8 +115,15 @@ Inoltre $\mathbb{E}\left[|Y_n|; |Y_n|>L\right] \rightarrow  \mathbb{E}\left[|Y|;
 \section{Esercizio 5.5}
 Sappiamo che $\frac{S_n}{n} \longrightarrow \mu $ q.c. (per LGN; $\mu := \mathbb{E}[X_n]$).
 
+Usiamo l'esercizio 5.2:
 
+L'ipotesi $\sup_n \lVert\frac{S_n}{n}\rVert_1  < \infty $ è vera per ipotesi.
 
+L'ipotesi $\sup_n \mathbb{E}\left[\left|\frac{S_n}{n}\right|;G\right] < \varepsilon \ \ \ \forall \mathbb{P}(G)<\delta $ è invece vera perché
+
+\[\mathbb{E}\left[\left|\frac{S_n}{n}\right|;G\right] < \varepsilon \ \ \ \forall \mathbb{P}(G)<\delta \]
+
+è vera per ogni $\frac{S_n}{n}$ preso singolarmente (essendo $\mathbb{L}^1$), e anche il sup rimane limitato a causa della convergenza q.c.
 
 
 
