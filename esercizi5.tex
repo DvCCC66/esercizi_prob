@@ -50,10 +50,23 @@
 \author{Davide Caucchiolo}
 \begin{document}
 \section{Esercizio 5.1}
-\[\int_{\{|X|>1\}}\left|X\right| d\omega \leq \int_{|X|>1} \left|X\right|^p d\omega \]
+\[\int_{\{|X|>1\}}\left|X\right| d\omega \leq \int_{|X|>1} \left|X\right|^p d\omega \leq c\]
 Quindi, definendo $Y:=X \mathds{1}_{|X|>1}$, si ha che $Y\in \mathbb{L}^1$, quindi tesi (basta imporre che $L>1$).
 
+\section{Esercizio 5.2}
+\subsection{$\Rightarrow $}
+Prima tesi:
+\[
+	\sup_{X\in \mathcal{C}} \|X\|_1 
+	= \sup_{X\in \mathcal{C}} \left(\mathbb{E}\left[\left|X\right|; \left|X\right| > L\right] + \mathbb{E}\left[\left|X\right|; \left|X\right| \leq  L\right]\right) 
+	\leq  \varepsilon +L < \infty     
+\]    
 
+Per la seconda tesi, sia $G = G_L \cup G_b$, con $G_L:= G\cap \left\{|X|>L\right\}$ (tale che $\mathbb{E}\left[\left|X\right|; \left|X\right| > L\right] < \frac{\varepsilon }{2}$) e $G_b := G \setminus G_L$. Scegliendo $\delta <\frac{\varepsilon }{2L}$ si ha:
+\[
+	\sup_{X\in \mathcal{C}} \left(\mathbb{E}\left[|X|;G_L\right] + \mathbb{E}\left[|X|;G_b\right]\right) \leq  
+	\frac{\varepsilon }{2} + \frac{\varepsilon }{2} = \varepsilon 
+\]
 
 
 \end{document}
