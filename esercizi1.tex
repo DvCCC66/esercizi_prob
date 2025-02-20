@@ -38,7 +38,7 @@
 \begin{document}
 \maketitle
 \section{Esercizio 1.1}
-\subsection{(1)}
+\subsection{(1): $F$ non decrescente}
 $F: \mathbb{R}\rightarrow \left[0,1\right]$ Ovvio
 
 Non decrescenza: assumendo $x\leq y$:
@@ -50,21 +50,24 @@ Non decrescenza: assumendo $x\leq y$:
 	\mathbb{P}\left(X\leq x\right) = F(x)
 \]
 
-\subsection{(2)}
+\subsection{(2): $F(-\infty )=0$ e $F(\infty )=1$}
 Per convergenza monotona di Beppo Levi:
 \[
 	0 = \mathbb{P}\left(\bigcap_x \left\{X\leq x\right\}\right) = \lim_{y\rightarrow -\infty} F(x)
 \]
 Analogamente anche con $F(+\infty)$.
 
-\subsection{(3)}
+\subsection{(3): $F$ è CAD}
 Sempre per convergenza monotona:
 \[
-	\lim_{y\rightarrow x^+} F(y) = \lim_{y\rightarrow x^+}\mathbb{P}\left(X\leq y\right) = \mathbb{P} \left(\bigcap_{y>x}\left\{X\leq y\right\}\right)
+	\lim_{y \searrow x} F(y) = \lim_{y \searrow x}\mathbb{P}\left(X\leq y\right) = \mathbb{P} \left(\bigcap_{y>x}\left\{X\leq y\right\}\right) = \mathbb{P}(X\leq x) = F(x)
 \]
+\begin{comment}
 \[
 	F(x) = \mathbb{P}\left(X\leq x\right)	
 \]
+\end{comment}
+
 \subsection{Bonus}
 \[
 	\mathbb{P}\left(X=x\right) = \mathbb{P}\left(X\leq x\right) - \mathbb{P}\left(X<x\right) = F(x) - \mathbb{P}\left(\bigcup_{y<x} \left\{X\leq y\right\}\right) = F(x) - \lim_{y \nearrow x} F(y)
@@ -78,7 +81,7 @@ Sempre per convergenza monotona:
 	\left\{z| F(z)>\omega \right\} \subset \left\{z| F(z) \geq \omega\right\} \longrightarrow \inf \left\{z| F(z)>\omega \right\} \geq \inf \left\{z| F(z) \geq \omega\right\} 
 \]
 
-\subsubsection{$X^+(\omega) \in \mathbb{R} \ \forall \omega\in \left(0,1\right)$}
+\subsubsection{$X^+(\omega) \in \mathbb{R} \ \ \  \forall \omega\in \left(0,1\right)$}
 Supponiamo per assurdo che $X^+ (\omega) = +\infty$:
 \[
 	\forall z_0, \ \exists z>z_0, \ F(z) \leq \omega < 1
@@ -87,20 +90,20 @@ Supponiamo per assurdo che $X^+ (\omega) = +\infty$:
 	\lim_{z\rightarrow +\infty} F(z) \leq \omega < 1	
 \]
 Che è in contraddizione con ipotesi (2).
-\subsubsection{$X^-(\omega) \in \mathbb{R} \ \forall \omega\in \left(0,1\right)$}
+\subsubsection{$X^-(\omega) \in \mathbb{R} \ \ \  \forall \omega\in \left(0,1\right)$}
 Analogo a precedente.
 
 
-\subsection{(2)}
+\subsection{(2): $\left\{\omega \in \Omega \  |\  \omega \leq F(y)\right\} = \left\{\omega \in \Omega \  |\  X^-(\omega ) \leq  y\right\}$}
 \[
 	X^-(\omega) \leq y \  \Longleftrightarrow  \  \inf \left\{z| F(z) \geq \omega\right\} \leq y \  \Longleftrightarrow  \  F(y) \geq \omega
 \]
 Ultimo passaggio vale perché $F(\cdot)$ è debolmente crescente.
 
-\subsection{(3)}
-Diamo per buoni tutti i suggerimenti.
+\subsection{(3): $\mathbb{P}(X^+ = X^-) = 1$}
+Diamo per buoni tutti i suggerimenti, ovvero che $\left\{X^- \neq  X^+\right\} = \left\{X^- < X^+\right\} = \cup _{q\in \mathbb{Q}}\left\{X^- < q <X^+\right\}$
 
-Tesi: $\exists! \omega \ t.c. \ X^-(\omega) < q < X^+(\omega)$
+Tesi: $\exists!\  \omega \ \ t.c. \ \ X^-(\omega) < q < X^+(\omega)$
 
 Abbiamo che, $\forall \varepsilon > 0$:
 \[
@@ -116,7 +119,7 @@ Quindi, dato un $\omega$ che soddisfa la tesi, nessun $\omega$ strettamente magg
 \[
 	X^+(\omega) = \inf\left\{x| F_X(x)>\omega\right\} = \inf\left\{x| 1-e^{-\lambda x} > \omega\right\} = 
 \]
-\[	= \inf\left\{x>0| x>- \frac{\ln\left(1 - \omega\right)}{\lambda} \right\} = - \frac{\ln\left(1 - \omega\right)}{\lambda}\]
+\[	= \inf\left\{x>0| x>- \frac{\ln\left(1 - \omega\right)}{\lambda} \right\} = - \frac{\ln\left(1 - \omega\right)}{\lambda} = X^-(\omega )\]
 
 \subsection{(2): $\mathrm{Cauchy}(\gamma)$}
 \[
@@ -135,7 +138,16 @@ Quindi, dato un $\omega$ che soddisfa la tesi, nessun $\omega$ strettamente magg
 	F_X(x) = \int_{-\infty }^{x} P_X \left(\xi\right) \, d\xi = \left[p\left(1-e^{-x}\right) + \left(1-p\right)\right] \mathds{1}_{[0,\infty )} (x)
 \]
 \[
-	X^\pm(\omega) = -\ln \left(1- \frac{\omega-(1-p)}{p}\right) \mathds{1}_{[1-p,p]}(\omega)
+	X^+(\omega) = -\ln \left(1- \frac{\omega-(1-p)}{p}\right) \mathds{1}_{[1-p,p]}(\omega)
+\]
+
+Soluzione di Emanuele (lui ragiona sempre in termini di $X^-$):
+\[
+	X^-(\omega )= \left\{\begin{aligned}
+		&-\infty & & & \omega =0\\
+		& 0 & & & 0<\omega \leq 1-p\\
+		& \ln\left(\frac{p}{1-\omega }\right) & & & 1-p<\omega <1\\
+	\end{aligned}\right.
 \]
 
 \subsection{(4): Valori $a_1, \dotsc, a_m$ con probabilità $p_1, \dotsc, p_m$}
@@ -148,9 +160,16 @@ Quindi, dato un $\omega$ che soddisfa la tesi, nessun $\omega$ strettamente magg
 Con $j(x) := \max\left\{j | a_j\leq x\right\}$
 
 \[
-	X^\pm (\omega) = \inf\left\{\omega | s_{j(x)} > \omega\right\}
+	X^+ (\omega) = \inf\left\{\omega | s_{j(x)} > \omega\right\}
 \]
-(Non sono riuscito a trovare una espressione migliore)
+
+Soluzione di Emanuele (lui ragiona sempre in termini di $X^-$):
+\[
+	X^-(\omega ) = \left\{\begin{aligned}
+		&-\infty &&& \omega =0\\
+		& a_i & & & \omega \in (s_{i-1}, s_i]
+	\end{aligned}\right.
+\]
 
 \subsection{(5): $F(x) = \left(1- pe^{-x}\right) \mathds{1}_{[0, \infty )}(x)$}
 \[
@@ -158,5 +177,25 @@ Con $j(x) := \max\left\{j | a_j\leq x\right\}$
 \]
 
 \subsection{(6): $f(x) = \frac{1}{2x^2} \mathds{1}_{(-1,1)^c}(x)$}
+\[
+	F(x) = \left\{\begin{aligned}
+		&-\frac{1}{2x} & & & x\leq -1\\
+		& \frac{1}{2} & & & -1<x<1\\
+		& 1-\frac{1}{2x} & & & x\geq 1\\
+	\end{aligned}\right.
+\]
+\[
+	X^+(\omega ) = \left\{\begin{aligned}
+		&-\frac{1}{2\omega }& & & \omega <\frac{1}{2}\\
+		& \frac{1}{2(1-\omega )}& & & \omega \geq \frac{1}{2}\\
+	\end{aligned}\right.
+\]
 
+Soluzione di Emanuele (lui ragiona sempre in termini di $X^-$):
+\[
+	X^-(\omega ) = \left\{\begin{aligned}
+		&-\frac{1}{2\omega }& & & \omega \leq \frac{1}{2}\\
+		& \frac{1}{2(1-\omega )}& & & \omega > \frac{1}{2}\\
+	\end{aligned}\right.
+\]
 \end{document}
