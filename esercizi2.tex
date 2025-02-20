@@ -124,12 +124,12 @@ Definiamo $I_j^n := \left[\frac{j-1}{2^n}, \frac{j}{2^n}\right)$
 
 Riscriviamo $A_{n+1}$ e $B$ in funzione degli $I_j^n$:
 \[
-	B = \bigcap_{k\in K} I_k^n
+	B = \bigsqcup _{k\in K} I_k^n
 \]
 (per qualche insieme $K$)
 
 \[
-	A_{n+1} = \bigcap_{j=1}^{2^{n-1}} I_{2j}^{n+1}
+	A_{n} = \bigsqcup _{j=1}^{2^{n-1}} I_{2j}^{n}
 \]
 
 Quindi:
@@ -142,15 +142,26 @@ Quindi:
 \[
 	\mathbb{P}\left(B \cap  A_{n+1}\right) = \frac{|K|}{2^{n+1}}
 \]
+(Quest'ultima identità la si ottiene facendo un paio di conti. Ma basta fare un disegnetto ed è ovviamente vera)
 
 \subsection{(2)}
-Premessa: Non so cosa significhi "sequenza B(1/2)". Io lo interpreterei come "Variabile di Bernoulli con $p=\frac{1}{2}$"
+% Premessa: Non so cosa significhi "sequenza B(1/2)". Io lo interpreterei come "Variabile di Bernoulli con $p=\frac{1}{2}$"
 
 Che $\left(\mathds{1}_{A_n}\right)_n$ siano identicamente distribuite lo abbiamo già visto (hanno tutte $\mathbb{P}(X=1)= \mathbb{P}(X=0) = \frac{1}{2}$).
 
-Inoltre $\mathbb{P}\left(I_j^n \cap A_m\right) = \frac{1}{2}$ con $n<m$.
+Inoltre $\mathbb{P}\left(I_j^n \cap A_m\right) = \frac{1}{2^{n+1}}$ con $n<m$.
 
-Quindi dimostrato.
+Quindi (assumendo che $n<m$):
+\[
+	\mathbb{P}\left(A_n \cap A_m\right) = \sum_{j=1}^{2^{m-1}}\mathbb{P}\left(I_{2j}^n \cap A_m\right) = \sum_{j=1}^{2^{n-1}}\frac{1}{2^{n+1}} = \frac{1}{4}
+\]
+
+\begin{comment}
+
+\[
+	\mathbb{P}\left(A_n\cap A_{n+l}\right) = \mathbb{P}\left(A_n \cap  \sqcup _{k\leq 2^{n+l-1}} I_{2k}^{n+l}\right) = \mathbb{P}\left(\sqcup _{k\leq 2^{n+l-1}}A_n \cap   I_{2k}^{n+l}\right) = \sum _{k\leq 2^{n+l-1}}\mathbb{P}\left(A_n \cap   I_{2k}^{n+l}\right) = \sum _{k\leq 2^{n+l-1}} \frac{1}{2^{n+l+1}} = {}
+\]
+\end{comment}
 
 \section{Esercizio 2.5}
 \subsection{(1)}
