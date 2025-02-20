@@ -33,12 +33,44 @@
 \usepackage{makecell}
 \usepackage{changepage}
 \usepackage{amssymb}
+\usepackage{geometry}
+\newcommand{\myrightarrow}[1]{\xrightarrow{\makebox[2em][c]{$\scriptstyle#1$}}}
+\newcommand{\convlegge}{\myrightarrow{\mathcal{L}}}
+\newcommand{\re}{\mathfrak{Re}}
+\newcommand{\im}{\mathfrak{Im}}
+\geometry{margin=15mm}
+\setlength{\columnseprule}{.5pt}
+\setlength{\oddsidemargin}{30pt}
+\setlength{\hoffset}{-1in}
 
 \newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
 \title{Esercizi prob 2}
 \begin{document}
 \maketitle
 \section{Esercizio 2.1}
+Definiamo le misure finite(*) di $\mathcal{G}_1$, con $A_2\in \Pi _2$ fissato:
+\[\nu _1(A) := \mathbb{P}(A \cap  A_2)\]
+\[\nu _2(A) := \mathbb{P}(A)\mathbb{P}(A_2)\]
+Siccome dall'ipotesi si sa che $\nu _1(A) = \nu _2(A)\ \ \ \forall A\in \Pi _1$, per il lemma di Williams si ha che $\nu _1(A)=\nu _2(A)\ \ \ \forall A\in \mathcal{G}_1$
+
+Analogamente, fissato $A_1\in \Pi _1$: 
+
+\[\tilde{\nu} _1(B) := \mathbb{P}(B \cap  A_1)\]
+\[\tilde{\nu} _2(B) := \mathbb{P}(B)\mathbb{P}(A_1)\]
+Siccome dall'ipotesi si sa che $\tilde{\nu} _1(B) = \tilde{\nu} _2(B)\ \ \ \forall B\in \Pi _2$, per il lemma di Williams si ha che $\tilde{\nu} _1(B)=\tilde{\nu} _2(B)\ \ \ \forall B\in \mathcal{G}_2$
+
+
+
+(*) Bisogna dimostrare che $\nu _1$ e $\nu _2$ sono misure finite:
+
+Per $\nu _1$:
+\[0\leq  \nu _1(A) = \mathbb{P}(A\cap A_2) \leq  \mathbb{P}(A)<+\infty \]
+\[\nu _1\left(\sqcup _k A_k\right) = \mathbb{P}\left(\left(\sqcup _kA_k\right)\cap A_2\right) = \mathbb{P}\left(\sqcup _kA_k\cap A_2\right) = \sum_{k}\mathbb{P}\left(A_k\cap A_2\right) = \sum_k \nu _1(A_k)\]
+
+Per $\nu _2$:
+\[0\leq  \nu _2(A) = \mathbb{P}(A)\mathbb{P}(A_2) \leq  \mathbb{P}(A_2) \leq 1 \]
+\[\nu _2\left(\sqcup _k A_k\right) = \mathbb{P}\left(\sqcup _kA_k\right)\mathbb{P}(A_2) = \left(\sum_{k}\mathbb{P}(A_k)\right)\mathbb{P}(A_2) = \sum_{k}\mathbb{P}(A_k)\mathbb{P}(A_2) = \sum_k \nu _2(A_k)\] 
+
 
 
 \section{Esercizio 2.2}
@@ -55,6 +87,35 @@ Osserviamo che, fissato $j$, si ha che $\Pi_j := \left\{\left\{X_j \leq  x_j\rig
 Per l'esercizio 2.1 si ha la tesi.
 
 \section{Esercizio 2.3}
+Prendiamo $\left\{A_1,\dots A_N\right\}$ indipendenti:
+\[
+	\mathbb{P}\left(A_1\cap \dots \cap A_N\right) = \prod_{n=1}^{N}\mathbb{P}(A_n) = \prod_{n=1}^{k}\mathbb{P}(A_n)\prod_{n=k+1}^{N}\mathbb{P}(A_m)=\mathbb{P}\left(\bigcap_{n=1}^{k} A_n\right) \mathbb{P}\left(\bigcap _{m=k+1}^N A_m\right)
+\]
+
+Sia:
+\[\Pi _{-,k} := \left\{\bigcap _{n=1}^k A_n,\ A_n\in \sigma (X_n)\right\}\]
+
+Si ha che $\sigma (X_i) \subset \Pi _{-,k},\ \ \ \forall i\leq k$.
+
+Inoltre $\Pi _{-,k}$ è un sistema $\pi $;    $\sigma (\Pi _{-,k}) = \sigma (X_1,\dots,X_k)$
+
+\[\Pi _{+,k} := \left\{\bigcap _{n=k+1}^\infty  A_n,\ A_n\in \sigma (X_n)\right\}\]
+$\sigma (\Pi _{+,k}) = \sigma (X_{k+1},\dots)$
+
+Per convergenza monotona (usata 2 volte):
+\[
+	\mathbb{P}\left(\bigcap _N \left(A_1 \cap \dots \cap A_N\right)\right) = \lim_{N\rightarrow \infty }\mathbb{P}\left(A_1\cap \dots\cap A_N\right) = \lim_{N\rightarrow \infty } \mathbb{P}\left(A_1\cap \dots\cap A_k\right)\mathbb{P}\left(A_{k+1}\cap \dots\cap A_N\right) =
+\]
+\[
+	= \mathbb{P}\left(A_1\cap \dots\cap A_k\right)\mathbb{P}\left(A_{k+1}\cap \dots\right)   
+\]
+
+Ma $A_1\cap \dots\cap A_k$ è un generico elemento di $\Pi _{-,k}$, e $A_{k+1}\cap \dots$ è un generico elemento di $\Pi _{+,k}$
+
+Vale cioè che $\mathbb{P}\left(A_+\cap A_-\right) = \mathbb{P}\left(A_+\right)\mathbb{P}\left(A_-\right)\ \ \ \ \forall A_+\in \Pi _{+,k},\ A_-\in \Pi _{-,k}$
+
+L'esercizio 2.1 chiude la dimostrazione.
+
 
 \section{Esercizio 2.4}
 \subsection{(1)}
