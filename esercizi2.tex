@@ -34,6 +34,7 @@
 \usepackage{changepage}
 \usepackage{amssymb}
 \usepackage{geometry}
+\usepackage{mathtools}
 \newcommand{\myrightarrow}[1]{\xrightarrow{\makebox[2em][c]{$\scriptstyle#1$}}}
 \newcommand{\convlegge}{\myrightarrow{\mathcal{L}}}
 \newcommand{\re}{\mathfrak{Re}}
@@ -42,6 +43,10 @@
 \setlength{\columnseprule}{.5pt}
 \setlength{\oddsidemargin}{30pt}
 \setlength{\hoffset}{-1in}
+
+
+
+\DeclarePairedDelimiterX\insieme[2]{\{}{\}}{#1\,\delimsize\vert\,\mathopen{}#2}
 
 \newcommand{\ind}{\mathrel{\perp\!\!\!\perp}}
 \title{Esercizi prob 2}
@@ -165,7 +170,7 @@ Quindi (assumendo che $n<m$):
 
 \section{Esercizio 2.5}
 \subsection{(1)}
-$X$ è variabile aleatoria perché è misurabile (è limite di funzioni semplici misurabili) ed è sempre finita ($\left| \frac{X_n(\omega )}{2^n} \right| \leq  \frac{1}{2^n}$, che converge in somma).
+$X$ è variabile aleatoria perché è misurabile (è limite di funzioni semplici misurabili) ed è sempre finita ($\left|  \frac{X_n(\omega )}{2^n} \right|  \leq  \frac{1}{2^n}$, che converge in somma a 1).
 
 \[
 	\mathbb{P}\left(X\in \left\{0,1\right\}\right) \leq  \mathbb{P}\left(X=0\right) + \mathbb{P}\left(X=1\right) = \mathbb{P}\left(X_n = 0, \forall  n\right) + \mathbb{P}\left(X_n = 1, \forall  n\right)  \leq  \frac{1}{2^n} + \frac{1}{2^n} \ \ \ \ \  \forall  n
@@ -178,13 +183,18 @@ Siccome $0 \leq  X \leq  1$:
 
 \subsection{(2)}
 \[
-	2F_X(x) = 2\mathbb{P}\left(\sum_{n} \frac{X_n}{2^n} \in  [0,X]\right) = 2 \mathbb{P}\left\{\omega  | 2\sum_{x}\frac{X_n (\omega )}{2^n} \in  [0,2x]\right\} = 2\mathbb{P}\left\{\omega  | X_0' + \sum_{n}\frac{X'_n(\omega )}{2^n} \in  [0,2x]\right\} = 
+2F_X(x) = 2\mathbb{P}\left(\sum_{n} \frac{X_n}{2^n} \in  [0,x]\right) = 2 \mathbb{P}\insieme*{\omega }{ 2\sum_{x}\frac{X_n (\omega )}{2^n} \in  [0,2x]} = 2\mathbb{P}\insieme*{\omega}{ X_0' + \sum_{n}\frac{X'_n(\omega )}{2^n} \in  [0,2x]} = 
 \]
 Con $X'_j := X_{j+1}$
 
 \[
-	2\left[\mathbb{P}\left(X'_0=0\right) \mathbb{P}\left(X\in [0,2x]\right)  +  \mathbb{P}\left(X'_0=1\right)\mathbb{P}\left(X\in [0,2x-1]\right)\right]
+	2F_X(x)=2\left[\mathbb{P}\left(X'_0=0\right) \mathbb{P}\left(X\in [0,2x]\right)  +  \mathbb{P}\left(X'_0=1\right)\mathbb{P}\left(X\in [0,2x-1]\right)\right] =
 \]
+\[
+	=2\left[\mathbb{P}\left(X'_0=0\right) F_X(2x) +  \mathbb{P}\left(X'_0=1\right)F_X(2x-1)\right]
+\]
+
+Sappiamo che $F_X(\xi)=0$ con $\xi\leq 0$ e che $F_X(\xi)=1$ con $\xi\geq 1$.
 
 Se $x \leq  \frac{1}{2}$:
 \[
@@ -198,11 +208,30 @@ Se $x \geq  \frac{1}{2}$:
 
 
 \subsection{(3)}
-Sappiamo dalla formula che $F_X\left(0\right)=0$ e che $F_X(1)=1$.
+Sappiamo che $F_X\left(0\right)=0$ e che $F_X(1)=1$.
 
 Quindi, imponendo $x=\frac{m}{2^n}$, si ha che con la formula si può ricavare il valore di $F_X(x)$ in funzione dei valori $\left\{F_X(\frac{m}{2^{n-1}})\right\}_{m\in \mathbb{N}}$, quindi tutti i valori diadici sono fissati.
 
-In particolare, si può dimostrare per induzione che $F_X(x) = x$.
+Infatti:
+\[
+	2F_X\left(\frac{1}{2^N}\right)=F_X\left(\frac{1}{2^{N-1}}\right)
+\]
+\[F_X\left(\frac{1}{2^N}\right) = \frac{1}{2}F_X\left(\frac{1}{2^{N-1}}\right) = \frac{1}{2^N}F(1) = \frac{1}{2^N}\]
+\[F\left(\frac{m}{2^N}\right) = F\left(\frac{2^l+s}{2^N}\right)\]
+(con $m=2^l+s$, $s<2^l$)
+
+In particolare, si può dimostrare che $F_X(x) = x$:
+
+Se $l+1=N$:
+\[F\left(\frac{2^l+s}{2^N}\right) = F\left(\frac{1}{2} + \frac{s}{2^N}\right) = \frac{1}{2} + \frac{1}{2}F\left(\frac{s}{2^{N-1}}\right)\]
+
+Se $l+1<N$:
+\[F\left(\frac{2^l+s}{2^N}\right) = \frac{1}{2} F\left(\frac{2^l+s}{2^{N-1}}\right)\]
+
+Quindi:
+\[F\left(\frac{m}{2^N}\right) = \frac{m}{2^N}\]
+
+Siccome $F(x)=x$ nell'insieme dei numeri diadici, che è denso in $[0,1]$, e siccome $F$ è CAD, si ha che $F(x)=x$.
 
 \subsection{(4)}
 \[
@@ -215,6 +244,10 @@ Con i termini nella sommatoria IID B(1/2).
 
 \subsection{(5)}
 Analogamente a prima ma spartisci i vari $X_j$ in infinite classi.
+
+Ad esempio:
+\[\widetilde{X}_k := \sum_{n=1}^{\infty }2^{-n} X_{\pi (k)^n}(\omega )\]
+con $\pi (k)$ il k-esimo numero primo.
 
 
 \end{document}
