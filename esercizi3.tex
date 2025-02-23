@@ -63,15 +63,29 @@ Dato $\omega $, per ogni valore distinto di $k$ esiste un valore di $n$ tale che
 
 Quindi
 \[
-	\nexists\, \omega \ : \ X_n(\omega ) \rightarrow  \omega 
+	\nexists\, \omega \ : \ X_n(\omega ) \rightarrow  0 
 \]
 (tranne forse $\omega =0$ o $\omega =1$ ma non ho voglia di controllare).
 
 
 \section{Esercizio 3.3}
-\subsection{$Y_n \rightarrow  0$}
+\subsection{$Y_n \rightarrow  0$ in $\mathbb{L}^p\ \ \ \forall p$}
+\[
+	\mathbb{E}\left[\left|Y_n\right|^p\right]=\int_{0}^{+\infty }\frac{|x|^p}{\log^p(n)}e^{-x}\,dx = \frac{c}{\log^p(n)} \myrightarrow{n\rightarrow \infty } 0
+\]
 
 \subsection{$\left(Y_n\right)$ non converge q.c.}
+\[
+	\mathbb{P}\left(Y_n>1\right) = \mathbb{P}\left(X_n > \log n\right) = e^{-\log n} = \frac{1}{n}
+\]
+\[
+	\sum_n \mathbb{P}\left(Y_n>1\right) = +\infty 
+\]
+
+Quindi, per BC2,
+\[
+	Y_n(\omega )>1\ \ \ \ \ i.o.
+\]
 
 
 \section{Esercizio 3.4}
