@@ -89,9 +89,49 @@ Quindi, per BC2,
 
 
 \section{Esercizio 3.4}
+\begin{comment}
+
 \[
 	\mathbb{P}\left(|X_1|>x\right) = \left(\mathbb{P}\left(\bigcap_{n} \left\{|X_n| > x\right\}\right)\right)^{\frac{1}{n}} = \exp \left[\frac{1}{n} \ln \mathbb{P}\left(\bigcap_n \left\{|X_n| > x\right\}\right)\right]
 \]
+\end{comment}
+Assumiamo che $X\geq 0$.
+
+La tesi è che $X_1\in \mathbb{L}^1 \Leftrightarrow  \mathbb{P}\left(X_n >1,\ i.o.\right)=0$
+
+\[\mathbb{E}\left[X\right] = \int_{0}^{+\infty }\mathbb{P}\left(X>x\right)\,dx = \sum_{n=0}^{+\infty }\int_{\frac{n}{L}}^{\frac{n+1}{L}} \mathbb{P}\left(X>x\right)\,dx\]
+
+\[\sum_{n=0}^{+\infty } \frac{1}{L} \mathbb{P}\left(X_n> \frac{n+1}{L}\right) \leq  \mathbb{E}\left[X\right] \leq  \sum_{n=0}^{+\infty }\frac{1}{L}\mathbb{P}\left(X_n>\frac{n}{L}\right)\]
+
+\subsection{$\Rightarrow $}
+Sappiamo che $X_1\in \mathbb{L}^1$:
+\[
+	\frac{1}{L}\sum_{n=0}^{+\infty }\mathbb{P}\left(\frac{N_n}{n+1}>\frac{1}{L}\right)<+\infty 
+\]
+Per BC1:
+\[
+	\mathbb{P}\left(\frac{N_n}{n+1}>\frac{1}{L},\ i.o.\right) = 0\ \ \ \forall L 
+\]
+Quindi:
+\[
+	\mathbb{P}\left(\frac{X_n}{n}>0,\ i.o.\right)=0
+\]
+Per l'esercizio 3.1:
+\[
+	\frac{X_n}{n}\longrightarrow 0\ \ \ q.c.
+\]
+
+\subsection{$\Leftarrow $}
+Se $\lim_{n\rightarrow \infty }\frac{X_n}{n}=0$:
+\[
+	\mathbb{P}\left(\frac{N_n}{n}>0,\ i.o.\right)=0
+\]
+Per BC2:
+\[
+	\sum_{n=0}^{\infty }\mathbb{P}\left(\frac{X_n}{n}>\frac{1}{L}\right)<+\infty \ \Rightarrow \ \mathbb{E}\left[X\right]<+\infty 
+\]
+
+NOTA: IID usato per poter applicare BC.
 
 \section{Esercizio 3.5}
 \subsection{(1): $\#\left(C_F^0\right)^c \leq  \aleph_0$  ($\Rightarrow \overline{C_F^0} = \mathbb{R}$)}
